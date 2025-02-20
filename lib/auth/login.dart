@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course_wael/components/custom_button_auth.dart';
+import 'package:flutter_course_wael/components/custom_logo_auth.dart';
 import 'package:flutter_course_wael/components/textformfield.dart';
 
 class Login extends StatefulWidget {
@@ -21,15 +23,7 @@ class _LoginState extends State<Login> {
         child: ListView(
           children: [
             const SizedBox(height: 20),
-            Container(
-              height: 120,
-              width: 120,
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade100, shape: BoxShape.circle),
-              child: Image.asset(
-                'assets/logo.png',
-              ),
-            ),
+            CustomLogoAuth(),
             const SizedBox(height: 10),
             const Text(
               'Login',
@@ -58,15 +52,9 @@ class _LoginState extends State<Login> {
                       fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            CustomButtonAuth(
+              text: 'Login',
               onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 60),
-                  backgroundColor: Colors.blueAccent.shade700),
-              child: const Text(
-                'Login',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
