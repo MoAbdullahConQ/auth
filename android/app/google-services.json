@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "127725032217",
+    "project_id": "flutter-course-wael-53e16",
+    "storage_bucket": "flutter-course-wael-53e16.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127725032217:android:35ea46e5b586a8c1f86b88",
+        "android_client_info": {
+          "package_name": "com.example.flutter_course_wael"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5d9AKhvhgMdlUznL7IouIQ1_RR7djm6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
