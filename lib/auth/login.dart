@@ -40,7 +40,11 @@ class _LoginState extends State<Login> {
             const Text('Password',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
-            CustomTextform(hint: 'Enter password', myController: pass),
+            CustomTextform(
+              hint: 'Enter password',
+              myController: pass,
+              passVisability: true,
+            ),
             const SizedBox(height: 16),
             const SizedBox(
               width: double.infinity,

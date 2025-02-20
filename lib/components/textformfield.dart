@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomTextform extends StatelessWidget {
   const CustomTextform(
-      {super.key, required this.hint, required this.myController});
+      {super.key, required this.hint, required this.myController,  this.passVisability});
 
   final String hint;
   final TextEditingController myController;
+
+  final bool? passVisability ;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class CustomTextform extends StatelessWidget {
       controller: myController,
       decoration: InputDecoration(
         hintText: hint,
-        suffixIcon: const Icon(Icons.visibility),
+        suffixIcon: passVisability == true ? const Icon(Icons.visibility) : null,
         fillColor: Colors.grey.shade100,
         filled: true,
         contentPadding:

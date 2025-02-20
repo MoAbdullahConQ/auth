@@ -44,60 +44,39 @@ class _RegisterState extends State<Register> {
             const Text('Password',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
-            CustomTextform(hint: 'Enter password', myController: pass),
+            CustomTextform(
+              hint: 'Enter password',
+              myController: pass,
+              passVisability: true,
+            ),
             const SizedBox(height: 18),
             const Text('Confirm Password',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
-            CustomTextform(hint: 'Enter confirm password', myController: pass),
-            const SizedBox(height: 16),
-            const SizedBox(
-              width: double.infinity,
-              child: Text('Forget Password?',
-                  textAlign: TextAlign.end,
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold)),
+            CustomTextform(
+              hint: 'Enter confirm password',
+              myController: pass,
+              passVisability: true,
             ),
+            const SizedBox(height: 16),
             const SizedBox(height: 16),
             CustomButtonAuth(
-              text: 'Login',
+              text: 'Register',
               onPressed: () {},
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 60),
-                  backgroundColor: Colors.red.shade500),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Or Login With',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(width: 10),
-                  Image.asset(
-                    'assets/google.png',
-                    color: Colors.black,
-                  )
-                ],
-              ),
             ),
             const SizedBox(height: 16),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed('login');
+              },
               child: const Text.rich(
                 textAlign: TextAlign.center,
                 TextSpan(children: [
                   TextSpan(
-                      text: 'Don\'t have an account?',
+                      text: 'Have an account?',
                       style: TextStyle(fontSize: 18)),
                   TextSpan(
-                      text: '  Register',
+                      text: '  Login',
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.blueAccent,
