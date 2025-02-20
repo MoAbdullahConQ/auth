@@ -22,28 +22,28 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
-FirebaseAuth.instance
-  .authStateChanges()
-  .listen((User? user) {
-    if (user == null) {
-      print('================User is currently signed out!');
-    } else {
-      print('=============User is signed in!');
-    }
-  });    super.initState();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print('================User is currently signed out!');
+      } else {
+        print('=============User is signed in!');
+      }
+    });
+    super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home: const Login(),
+    return MaterialApp(
+      home: FirebaseAuth.instance.currentUser == null
+          ? const Login()
+          : const HomePage(),
       routes: {
-
-        "register" : (context) => const Register(),
-        "login" : (context) => const Login(),
-        "homePage" : (context) => const HomePage(),
+        "register": (context) => const Register(),
+        "login": (context) => const Login(),
+        "homePage": (context) => const HomePage(),
       },
     );
   }
