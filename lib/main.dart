@@ -17,8 +17,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Register(),
+    return  MaterialApp(
+      home: const Login(),
+      routes: {
+
+        "register" : (context) => const Register()
+      },
     );
   }
 }
