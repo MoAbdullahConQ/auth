@@ -85,7 +85,7 @@ class _LoginState extends State<Login> {
             const SizedBox(height: 16),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed('register');
+                Navigator.of(context).pushReplacementNamed('register');
               },
               child: const Text.rich(
                 textAlign: TextAlign.center,

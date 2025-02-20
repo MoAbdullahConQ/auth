@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_course_wael/components/custom_button_auth.dart';
 import 'package:flutter_course_wael/components/custom_logo_auth.dart';
@@ -11,6 +12,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  TextEditingController userName = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
 
@@ -35,7 +37,7 @@ class _RegisterState extends State<Register> {
             const Text('Username',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
-            CustomTextform(hint: 'Enter your name', myController: email),
+            CustomTextform(hint: 'Enter your name', myController: userName),
             const Text('Email',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 10),
@@ -62,7 +64,24 @@ class _RegisterState extends State<Register> {
             const SizedBox(height: 16),
             CustomButtonAuth(
               text: 'Register',
-              onPressed: () {},
+              onPressed: () async {
+                try {
+                  final credential = await FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                    email: email.text,
+                    password: pass.text,
+                  );
+                  Navigator.of(context).pushReplacementNamed('homePage');
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                  print(e);
+                }
+              },
             ),
             const SizedBox(height: 16),
             InkWell(
@@ -73,8 +92,7 @@ class _RegisterState extends State<Register> {
                 textAlign: TextAlign.center,
                 TextSpan(children: [
                   TextSpan(
-                      text: 'Have an account?',
-                      style: TextStyle(fontSize: 18)),
+                      text: 'Have an account?', style: TextStyle(fontSize: 18)),
                   TextSpan(
                       text: '  Login',
                       style: TextStyle(
